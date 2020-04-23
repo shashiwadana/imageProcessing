@@ -1,17 +1,31 @@
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc.hpp>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 
 using namespace cv;
 using namespace std;
 
-int main()
+int main(int argc, char** argv)
 {
-	Mat image = Mat::zeros(300, 600, CV_8UC3);
-	circle(image, Point(250, 150), 100, Scalar(0, 255, 128), -100);
-	circle(image, Point(350, 150), 100, Scalar(255, 255, 255), -100);
-	imshow("Display Window", image);
-	waitKey(0);
-	return 0;
+    // Read the image file
+    Mat image = imread("F:/image processing/test1/cat.jpg");
+
+    // Check for failure
+    if (image.empty())
+    {
+        cout << "Could not open or find the image" << endl;
+        cin.get(); //wait for any key press
+        return -1;
+    }
+
+    String windowName = "The Cat"; //Name of the window
+
+    namedWindow(windowName); // Create a window
+
+    imshow(windowName, image); // Show our image inside the created window.
+
+    waitKey(0); // Wait for any keystroke in the window
+
+    destroyWindow(windowName); //destroy the created window
+
+    return 0;
 }
