@@ -17,7 +17,7 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    String windowName = "The Cat"; //Name of the window
+    String windowName = "Cat"; //Name of the window
 
     namedWindow(windowName); // Create a window
 
