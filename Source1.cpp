@@ -1,10 +1,10 @@
-#include "opencv2/highgui/highgui.hpp"
+#include <opencv2 / opencv.hpp>
 #include <iostream>
 using namespace cv;
 using namespace std;
-int LoadImage() {
+void LoadImage() {
 
-	Mat image = imread("F:/image processing/test1/cat.jpg");
+	Mat image = imread("F:/image processing/test1/lena.jpg");
 	//give path to your image
 	if (image.empty())
 	{
@@ -17,8 +17,5 @@ int LoadImage() {
 	imshow(windowName, image); // Show image inside the created window.
 	waitKey(0); // Wait for any keystroke in the window
 	destroyWindow(windowName); //destroy the created window
-	image.release();
-
 	return 0;
 };
-#pragma once
